@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>guessing game</title>
+  </head>
+  <body>
+    <p>guess a number between 0 to 100</p>
+    <input type="text" id="num" autofocus>
+    <button type="button" name="button">enter</button>
+    <div class="output"></div>
+
+    <script type="text/javascript">
+
+      //variables used in the code
+      var output=document.querySelector(".output");
+      var num=document.querySelector("#num");
+      var but=document.querySelector("button");
+      var input=document.querySelector("input");
+      var remaning=9;
+      var gamewon=false;
+      var mystery=Math.round(Math.random()*100);
+
+      //event listeners
+      but.addEventListener("click",fun,false);
+      window.addEventListener("keydown",key,false);
+
+      //function for checking if the pressed button is enter or not
+      function key(event){
+        if(event.keyCode==13)
+        {
+          fun();
+        }
+      }
+
+      //function for checking if the number is same as gussed
+      function fun(){
+
+        if(validate()){                                                         //check if entered values are number or not
+        var asd=parseInt(num.value);
+        if(remaning>0){
+          if(asd<mystery)
+            {
+                output.innerHTML="very low!"+" remaning guesses "+remaning;
+            }
+              else if (asd>mystery)
+                  {
+                    output.innerHTML="very high!"+" remaning guesses "+remaning;
+                  }
+                  else if (asd==mystery)
+                      {
+                        output.innerHTML=" you got it correct!";
+                        gamewon=true;
+                        endgame();
+                      }
+                remaning=--remaning;
+              }
+        else{
+            endgame();
+          }
+        }
+        else{
+          output.innerHTML="please enter a number";
+        }
+      }
+
+      function endgame(){                                                       //end of game
+        if(gamewon)
+        {
+          output.innerHTML="you won!";
+        }
+        else{
+          output.innerHTML="no more guesses remaning!";
+        }
+        but.disabled=true;
+        input.disabled=true;
+      }
+
+      function validate()                                                       //check if entered values are number or not
+      {
+        if(isNaN(num.value)){
+          return 0;
+        }
+        else{
+          return 1;
+        }
+      }
+    </script>
+
+  </body>
+</html>
 
