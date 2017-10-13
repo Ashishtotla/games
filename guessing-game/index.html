@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="https://ashishtotla.github.io/games/guessing-game/manifest.json">
-    <title>guessing game</title>
+    <title>Guessing Game</title>
   </head>
   <body>
-    <p>guess a number between 0 to 100</p>
+    <p>Guess a number between 0 to 100</p>
     <input type="text" id="num" autofocus>
-    <button type="button" name="button">enter</button>
+    <button type="button" name="button">Enter</button>
     <div class="output"></div>
 
     <script type="text/javascript">
@@ -43,15 +43,15 @@
         if(remaning>0){
           if(asd<mystery)
             {
-                output.innerHTML="very low!"+" remaning guesses "+remaning;
+                output.innerHTML="very Low!"+" Remaning guesses : "+remaning;
             }
               else if (asd>mystery)
                   {
-                    output.innerHTML="very high!"+" remaning guesses "+remaning;
+                    output.innerHTML="very High!"+" Remaning guesses : "+remaning;
                   }
                   else if (asd==mystery)
                       {
-                        output.innerHTML=" you got it correct!";
+                        output.innerHTML=" You answered correctly! ";
                         gamewon=true;
                         endgame();
                       }
@@ -62,17 +62,17 @@
           }
         }
         else{
-          output.innerHTML="please enter a number";
+          output.innerHTML="Please Enter a Number";
         }
       }
 
       function endgame(){                                                       //end of game
         if(gamewon)
         {
-          output.innerHTML="you won!";
+          output.innerHTML="You Won!";
         }
         else{
-          output.innerHTML="no more guesses remaning!";
+          output.innerHTML="You Lose, No more guesses remaning! Try Again";
         }
         but.disabled=true;
         input.disabled=true;
